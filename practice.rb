@@ -42,20 +42,21 @@ anthonys_wallet = 0
 
 loop do 
 
+  if blockchain[x]["to_user"] == "ben"
+   bens_wallet = bens_wallet + blockchain[x]["amount"]
+   puts bens_wallet
+   puts x
+  #elsif blockchain[x]["to_user"] == "brian"
+   #brians_wallet = brians_wallet + blockchain[x]["amount"]
+  #elsif blockchain[x]["to_user"] == "evan"
+   #evans_wallet = evans_wallet + blockchain[x]["amount"]
+  #else blockchain[x]["to_user"] == "anthony"
+   #anthonys_wallet = anthonys_wallet + blockchain[x]["amount"]
+  end
+  
   x = x + 1
+
   if x > total_transactions
     break
   end
-
-  if blockchain[x]["to_user"] == "ben"
-   bens_wallet = bens_wallet+ blockchain[x]["amount"]
-  elseif blockchain[x]["to_user"] == "brian"
-   brians_wallet = brians_wallet+ blockchain[x]["amount"]
-  elseif blockchain[x]["to_user"] == "evan"
-   evans_wallet = evans_wallet + blockchain[x]["amount"]
-  else blockchain[x]["to_user"] == "anthony"
-   anthonys_wallet = anthonys_wallet + blockchain[x]["amount"]
-  end
-
-  
 end
