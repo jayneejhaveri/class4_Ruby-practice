@@ -27,3 +27,35 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+
+#number of transactions 
+total_transactions = blockchain.size 
+puts total_transactions
+
+#number of users 
+
+x = 0
+bens_wallet = 0
+brians_wallet = 0
+evans_wallet = 0
+anthonys_wallet = 0
+
+loop do 
+
+  x = x + 1
+  if x > total_transactions
+    break
+  end
+
+  if blockchain[x]["to_user"] == "ben"
+   bens_wallet = bens_wallet+ blockchain[x]["amount"]
+  elseif blockchain[x]["to_user"] == "brian"
+   brians_wallet = brians_wallet+ blockchain[x]["amount"]
+  elseif blockchain[x]["to_user"] == "evan"
+   evans_wallet = evans_wallet + blockchain[x]["amount"]
+  else blockchain[x]["to_user"] == "anthony"
+   anthonys_wallet = anthonys_wallet + blockchain[x]["amount"]
+  end
+
+  
+end
