@@ -42,21 +42,36 @@ anthonys_wallet = 0
 
 loop do 
 
-  if blockchain[x]["to_user"] == "ben"
-   bens_wallet = bens_wallet + blockchain[x]["amount"]
-   puts bens_wallet
-   puts x
-  #elsif blockchain[x]["to_user"] == "brian"
-   #brians_wallet = brians_wallet + blockchain[x]["amount"]
-  #elsif blockchain[x]["to_user"] == "evan"
-   #evans_wallet = evans_wallet + blockchain[x]["amount"]
-  #else blockchain[x]["to_user"] == "anthony"
-   #anthonys_wallet = anthonys_wallet + blockchain[x]["amount"]
-  end
-  
-  x = x + 1
-
-  if x > total_transactions
+  if x == total_transactions
     break
   end
+
+  if blockchain[x]["to_user"] == "ben"
+    bens_wallet = bens_wallet + blockchain[x]["amount"]
+   elsif blockchain[x]["to_user"] == "brian"
+    brians_wallet = brians_wallet + blockchain[x]["amount"]
+   elsif blockchain[x]["to_user"] == "evan"
+    evans_wallet = evans_wallet + blockchain[x]["amount"]
+   elsif blockchain[x]["to_user"] == "anthony"
+    anthonys_wallet = anthonys_wallet + blockchain[x]["amount"]
+   end
+
+  if blockchain[x]["from_user"] == "ben"
+   bens_wallet = bens_wallet - blockchain[x]["amount"]
+  elsif blockchain[x]["from_user"] == "brian"
+   brians_wallet = brians_wallet - blockchain[x]["amount"]
+  elsif blockchain[x]["from_user"] == "evan"
+   evans_wallet = evans_wallet - blockchain[x]["amount"]
+  elsif blockchain[x]["from_user"] == "anthony"
+   anthonys_wallet = anthonys_wallet - blockchain[x]["amount"]
+  end
+
+  x = x + 1
+
+
 end
+
+puts "Ben's KelloggCoin balance is #{bens_wallet}"
+puts "Brian's KelloggCoin balance is #{brians_wallet}"
+puts "Evan's KelloggCoin balance is #{evans_wallet}"
+puts "Anthony's KelloggCoin balance is #{anthonys_wallet}"
